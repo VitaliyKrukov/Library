@@ -1,4 +1,3 @@
-markdown
 # Python Library - Django REST API
 
 Проект системы управления библиотекой на Django REST Framework с JWT аутентификацией.
