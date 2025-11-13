@@ -21,10 +21,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-
     "users",
     "library",
-
     "rest_framework",
     "rest_framework_simplejwt",
     "drf_yasg",
@@ -61,7 +59,6 @@ WSGI_APPLICATION = "config.wsgi.application"
 
 
 # Database
-# https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
     "default": {
@@ -76,7 +73,6 @@ DATABASES = {
 
 
 # Password validation
-# https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -95,7 +91,6 @@ AUTH_PASSWORD_VALIDATORS = [
 
 
 # Internationalization
-# https://docs.djangoproject.com/en/5.2/topics/i18n/
 
 LANGUAGE_CODE = "ru-ru"
 TIME_ZONE = "Europe/Moscow"
