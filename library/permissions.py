@@ -1,6 +1,18 @@
 from rest_framework import permissions
 
 
+class IsAdminOrReadOnly(permissions.BasePermission):
+    """
+    Разрешение на изменение только для администраторов.
+    Остальные могут только просматривать.
+    """
+
+    def has_permission(self, request, view):
+        if request.method in permissions.SAFE_METHODS:
+            return True
+        return request.user and request.user.is_staff
+
+
 class IsIssuanceOwnerOrAdmin(permissions.BasePermission):
     """
     Разрешение, позволяющее пользователям работать только со своими выдачами.
@@ -8,9 +20,6 @@ class IsIssuanceOwnerOrAdmin(permissions.BasePermission):
     """
 
     def has_object_permission(self, request, view, obj):
-        # Администраторам разрешено все
         if request.user and request.user.is_staff:
             return True
-
-        # Пользователи могут работать только со своими выдачами
         return obj.user == request.user
